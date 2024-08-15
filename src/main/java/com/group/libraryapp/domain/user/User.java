@@ -14,7 +14,7 @@ import java.util.List;
 public class User {
     // 아래는 매핑된 테이블
     // javax 어노테이션 - 이 필드가 id라는 것을 알려주기 위해 적음
-    // 이 필드를 primary key 로 간주한다.
+    // 이 필드를 primary key 로 간주한다.s
     @Id
     // id에 autoIncrement 즉 1,2.. 자동 생성을 붙여줬기 때문에 GeneratedValue 어노테이션 적용
     // primary key 는 자동 생성되는 값이다.
