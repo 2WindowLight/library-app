@@ -6,11 +6,12 @@ spring:
     url: "jdbc:h2:mem:library;MODE=MYSQL;NON_KEYWORDS=USER" # NON_KEYWORDS=USER - sql을 기본적으로 실행하게 되면 유저라는 키워드가 예약된 키워드로
     # 유저 테이블을 못만드는데 유저라는건 키워드가 아니야 라고 알려주도록 한다. -> 이렇게 해야 유저 테이블을 만듦
     username: "sa"
-    password: ""
+    password: "Ll9711266!!"
     driver-class-name: org.h2.Driver
   jpa:
     hibernate:
-      ddl-auto: create #H2DB 는 어차피 데이터가 항상 사라지기 때문에 그냥 테이블을 그때 그때 서버가 켜질 때 만들어 주도록 한다.
+      #H2DB 는 어차피 데이터가 항상 사라지기 때문에 그냥 테이블을 그때 그때 서버가 켜질 때 만들어 주도록 한다.
+      ddl-auto: create
     properties:
       hibernate:
         # JPA 를 사용해 DB에 SQL 을 날릴 때 SQL 을 보여줄 것인가
@@ -29,8 +30,8 @@ spring:
 spring:
   config:
     activate:
-      on-profile: dev # 아래 있는 설정들은 특정 프로파일에서 실행된다.
-
+      on-profile: dev
+  # 아래 있는 설정들은 특정 프로파일에서 실행된다.
   datasource:   # 스프링 부트가 어떠한 데이터베이스를 가리킬 것인가
     url: "jdbc:mysql://localhost/library" # jdbc - 자바 데이터베이스 커넥터를 사용하는데 종류는 mysql - 데이터베이스는 컴퓨터 호스트 / 사용할 데이터 베이스는 library
     username: "root"

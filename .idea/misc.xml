@@ -12,6 +12,7 @@
     </list>
     <writeAnnotations>
       <writeAnnotation name="javax.persistence.GeneratedValue" />
+      <writeAnnotation name="javax.persistence.OneToMany" />
     </writeAnnotations>
   </component>
   <component name="ExternalStorageConfigurationManager" enabled="true" />

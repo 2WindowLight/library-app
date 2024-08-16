@@ -1,7 +1,5 @@
 package com.group.libraryapp.domain.user;
-
 import com.group.libraryapp.domain.user.loanhistory.UserLoanHistory;
-
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -14,11 +12,12 @@ import java.util.List;
 public class User {
     // 아래는 매핑된 테이블
     // javax 어노테이션 - 이 필드가 id라는 것을 알려주기 위해 적음
-    // 이 필드를 primary key 로 간주한다.s
-    @Id
+    // 이 필드를 primary key 로 간주한다.
+
     // id에 autoIncrement 즉 1,2.. 자동 생성을 붙여줬기 때문에 GeneratedValue 어노테이션 적용
     // primary key 는 자동 생성되는 값이다.
     // IDENTITY는 auto_increment 와의 전략과 매칭된다.
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id = null;
     @Column(nullable = false, length = 20, name = "name") // name varchar(20)
@@ -32,12 +31,12 @@ public class User {
     protected User(){}
 
 
-        public User(String name, Integer age) throws IllegalAccessException {
-            if (name == null || name.isBlank()){
-                throw new IllegalAccessException(String.format("잘못된 name(%s)이 들어왔습니다.",name));
-            }
-            this.name = name;
-            this.age = age;
+    public User(String name, Integer age) throws IllegalAccessException {
+        if (name == null || name.isBlank()){
+            throw new IllegalAccessException(String.format("잘못된 name(%s)이 들어왔습니다.",name));
+        }
+        this.name = name;
+        this.age = age;
         }
     public String getName() {
         return name;

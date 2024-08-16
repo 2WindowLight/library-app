@@ -22,12 +22,12 @@ public class UserController {
     private final List<User> users = new ArrayList<>();
 
     // JdbcTemplate 을 선언하고 이 것을 받아서 설정해주는 생성자를 만듦, 이렇게 되면 jdbc 템플릿을 생성자에 직접 넣어주지 않더라도 스프링이 알아서 jdbc 탬플릿이 넣어줌
-    public UserController(UserServiceV2 UserServiceV2){
+    public UserController(UserServiceV2 userService){
         // jdbcTemplate 은 java 커넥터에 대한 클래스
         // jdbc 템플릿을 이용하면 ㅇ래 저장하는 것처럼 sql을 Mysql로 날릴 수 있다.
         // 이 jdbc 템플릿을 사용하기 위해서는 필드를 선언해주고 생성자를 만든다.
         // 이때 jdbc 템플릿이 자동으로 파라미터를 통해 들어와 설정된다.
-        this.userService = UserServiceV2;
+        this.userService = userService;
 
     }
     @PostMapping("/user") // Post /user

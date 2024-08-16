@@ -31,7 +31,7 @@ public class UserServiceV2 {
         // save 되고 난 후의 User 는 id가 들어 있다.
          userRepository.save(new User(request.getName(), request.getAge()));
         //u.getId(); // 1,2,3
-        throw new IllegalArgumentException();
+
     }
 
     @Transactional(readOnly = true)
