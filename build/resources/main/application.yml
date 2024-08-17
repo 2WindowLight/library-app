@@ -6,7 +6,7 @@ spring:
     url: "jdbc:h2:mem:library;MODE=MYSQL;NON_KEYWORDS=USER" # NON_KEYWORDS=USER - sql을 기본적으로 실행하게 되면 유저라는 키워드가 예약된 키워드로
     # 유저 테이블을 못만드는데 유저라는건 키워드가 아니야 라고 알려주도록 한다. -> 이렇게 해야 유저 테이블을 만듦
     username: "sa"
-    password: "Ll9711266!!"
+    password: ""
     driver-class-name: org.h2.Driver
   jpa:
     hibernate:
@@ -35,7 +35,7 @@ spring:
   datasource:   # 스프링 부트가 어떠한 데이터베이스를 가리킬 것인가
     url: "jdbc:mysql://localhost/library" # jdbc - 자바 데이터베이스 커넥터를 사용하는데 종류는 mysql - 데이터베이스는 컴퓨터 호스트 / 사용할 데이터 베이스는 library
     username: "root"
-    password: ""
+    password: "Ll9711266!!"
     driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
     hibernate:
@@ -44,11 +44,11 @@ spring:
       # create-drop - 스프링이 종료될 때 테이블을 모두 제거 update - 객체와 테이블이 다른 부분만 변경
       # validate - 객체와 테이블이 동일한지 확인 / none - 별다른 조치를 하지 않는다.
       ddl-auto: none # MySQL 을 쓸때는 직접 DDL을 사용해서 JPA 맵핑된 테이블을 만들어 주었다.
-      properties:
-        hibernate:
+    properties:
+      hibernate:
           # JPA 를 사용해 DB에 SQL 을 날릴 때 SQL 을 보여줄 것인가
-          show_sql: true
+        show_sql: true
           # sql을 보여줄때 예쁘게 포매팅할 것인가
-          format_sql: true
+        format_sql: true
           # dialect - 이 옵션으로 DB를 특정하면 조금씩 다른 SQL 을 수정해준다. ex maria sql, post sql .....
-          dialect: org.hibernate.dialect.MySQL8Dialect
+        dialect: org.hibernate.dialect.MySQL8Dialect

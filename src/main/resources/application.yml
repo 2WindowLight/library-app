@@ -44,11 +44,11 @@ spring:
       # create-drop - 스프링이 종료될 때 테이블을 모두 제거 update - 객체와 테이블이 다른 부분만 변경
       # validate - 객체와 테이블이 동일한지 확인 / none - 별다른 조치를 하지 않는다.
       ddl-auto: none # MySQL 을 쓸때는 직접 DDL을 사용해서 JPA 맵핑된 테이블을 만들어 주었다.
-      properties:
-        hibernate:
+    properties:
+      hibernate:
           # JPA 를 사용해 DB에 SQL 을 날릴 때 SQL 을 보여줄 것인가
-          show_sql: true
+        show_sql: true
           # sql을 보여줄때 예쁘게 포매팅할 것인가
-          format_sql: true
+        format_sql: true
           # dialect - 이 옵션으로 DB를 특정하면 조금씩 다른 SQL 을 수정해준다. ex maria sql, post sql .....
-          dialect: org.hibernate.dialect.MySQL8Dialect
+        dialect: org.hibernate.dialect.MySQL8Dialect
