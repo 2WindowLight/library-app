@@ -30,7 +30,7 @@ public class UserController {
         this.userService = userService;
 
     }
-    @PostMapping("/user") // Post /user
+    @PostMapping("/user") // Post /user a
     // body를 객체로 표현할 DTO도 필요
     public void saveUser(@RequestBody UserCreateRequest request) throws IllegalAccessException { // 결과 반환 x / http 상태 200 ok 이면 충분
         // sql 을 받아서 문자 변수로 저장 ?,? << 고정된 sql 이 아님
