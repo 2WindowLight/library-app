@@ -5,7 +5,7 @@ spring:
   datasource: # 데이터 베이스를 H2 Database 쓰게 할 거니까 데이터 소스를 정의
     url: "jdbc:h2:mem:library;MODE=MYSQL;NON_KEYWORDS=USER" # NON_KEYWORDS=USER - sql을 기본적으로 실행하게 되면 유저라는 키워드가 예약된 키워드로
     # 유저 테이블을 못만드는데 유저라는건 키워드가 아니야 라고 알려주도록 한다. -> 이렇게 해야 유저 테이블을 만듦
-    username: "root"
+    username: "sa"
     password: "Ll9711266!!"
     driver-class-name: org.h2.Driver
   jpa:
