@@ -1,6 +1,8 @@
 package com.group.libraryapp.domain.book;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
+import lombok.Getter;
+
 
 // jpa 즉 테이
 @Entity
@@ -10,12 +12,14 @@ public class Book {
     private Long id = null;
 
     @Column(nullable = false)
+    @Getter
     private String name;
 
-    public String getName() {
+    // lombook 으로 인한 getter 삭제
+    /*public String getName() {
         return name;
     }
-
+*/
     // JPA 같은 경우는 기본 생성자 하나가 필요함
     protected Book(){
 

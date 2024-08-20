@@ -1,6 +1,11 @@
 package com.group.libraryapp.domain.user;
 import com.group.libraryapp.domain.user.loanhistory.UserLoanHistory;
-import javax.persistence.*;
+import jakarta.persistence.*;
+import lombok.AccessLevel;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -8,6 +13,7 @@ import java.util.List;
 // 리스트에 저장하는 역할
     // 테이블과 매핑할 유저User 객체
 @Entity
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Table(name="USER")
 public class User {
     // 아래는 매핑된 테이블
@@ -19,16 +25,20 @@ public class User {
     // IDENTITY는 auto_increment 와의 전략과 매칭된다.
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Getter
     private Long id = null;
     @Column(nullable = false, length = 20, name = "name") // name varchar(20)
+    @Getter
     private String name;
+    @Getter
     private Integer age;
     // User 가 한명이면 한명한테는 여러 개의 대출 기록 N개의 대출 기록이 있을 표현을 사용
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true) // private User user;
     private List<UserLoanHistory> userLoanHistories = new ArrayList<>();
     // 이것을 생성하는 이유는 jpa 객체 즉 엔티티 객체에는 매개변수가 하나도 없는 기본 생성자가 꼭
     // 필요하기 때문
-    protected User(){}
+
+    //protected User(){};
 
 
     public User(String name, Integer age) throws IllegalAccessException {
@@ -37,8 +47,10 @@ public class User {
         }
         this.name = name;
         this.age = age;
-        }
-    public String getName() {
+    }
+
+    // 위의 private String Name 등등에 Getter을 사용 (lombok)
+    /*public String getName() {
         return name;
     }
 
@@ -48,7 +60,7 @@ public class User {
 
     public Long getId() {
         return id;
-    }
+    }*/
     public void UpdateName(String name){
         this.name = name;
     }

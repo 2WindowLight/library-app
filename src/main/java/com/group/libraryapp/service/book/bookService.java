@@ -10,10 +10,14 @@ import com.group.libraryapp.domain.user.loanhistory.UserLoanHistoryRepository;
 import com.group.libraryapp.dto.book.request.BookCreateRequest;
 import com.group.libraryapp.dto.book.request.BookLoanRequest;
 import com.group.libraryapp.dto.book.request.BookReturnRequest;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service
+// 클래스에 RequiredArgsConstructor 을 정의하여  현재 클래스에 있는 반드시 있어야 하는 필드들에 대한 생성자가 자동으로 생성
+// 아래의 final 이 붙은 3가지에 대한 생성자가 자동으로 생성
+@RequiredArgsConstructor
 public class bookService {
     //private final BookMemoryRepository bookMemoryRepository = new BookMemoryRepository();
     // 위에는 인터페이스 사용 전 아래는 인터페이스 사용 후
@@ -30,16 +34,19 @@ public class bookService {
     // 북 sql과 메모리 가 있는데 스프링이 알아서 결정해 줌
     // 레포지토리 인터페이스 객체를 생성하고 레포지토리 인터페이스에 대한
     // 북 서비스 생성자를 만들어줌
+
     private final BookRepository bookRepository;
     private final UserLoanHistoryRepository userLoanHistoryRepository;
     private final UserRepository userRepository;
-
+    /*
     // 스프링 빈 주입 받기
+    // 클래스에 RequiredArgsConstructor 을 정의하여  현재 클래스에 있는 반드시 있어야 하는 필드들에 대한 생성자가 자동으로 생성
+    // 위의 final 이 붙은 3가지에 대한 생성자가 자동으로 생성
     public bookService(BookRepository bookRepository, UserLoanHistoryRepository userLoanHistoryRepository, UserRepository userRepository){
         this.bookRepository = bookRepository;
         this.userLoanHistoryRepository = userLoanHistoryRepository;
         this.userRepository = userRepository;
-    }
+    }*/
     @Transactional
     public void saveBook(BookCreateRequest request){
         // 외부에서는 도메인에서 생성된 객체에 이름을 넣어서 북 객체를 새로 만들고

@@ -1,8 +1,9 @@
 package com.group.libraryapp.domain.user.loanhistory;
 
 import com.group.libraryapp.domain.user.User;
+import jakarta.persistence.*;
+import lombok.Getter;
 
-import javax.persistence.*;
 
 // 대출에 대한 Entity 객체 생성
 @Entity
@@ -17,6 +18,8 @@ public class UserLoanHistory {
     // UserLoanHistory가 User와 연결되게 되며 User도 UserLoanHistory 를 사용하게 한다.
     @ManyToOne
     private User user;
+    // 책 이름을 가져오는 함수
+    @Getter
     private String bookName;
     // boolean 으로 처리하면, tinyint에 잘 매핑된다.
     private boolean isReturn;
@@ -31,11 +34,6 @@ public class UserLoanHistory {
     // 반납 처리
     public void  doReturn(){
         this.isReturn = true;
-    }
-
-    // 책 이름을 가져오는 함수
-    public String getBookName(){
-        return this.bookName;
     }
 
 
